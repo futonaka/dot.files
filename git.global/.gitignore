@@ -1,0 +1,9 @@
+# この設定を有効にするためには以下のコマンドを実行してください。
+# git config --global core.excludesfile ~/git.global/.gitignore
+
+# macの例のやつを無視
+.DS_Store
+
+# 基本的に圧縮ファイルは無視
+*.tar.gz
+*.zip
