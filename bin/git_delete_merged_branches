@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+# HOW TO USE
+#
+# $ git_remove_merged_branches
+# $ git_remove_merged_branches -r
+#
+
+remote = ARGV.include?("-r") || ARGV.include?("--remote")
+dryrun = ARGV.include?("-n") || ARGV.include?("--dry-run")
+
+remote_arg = remote ? "-r" : ""
+
+branches = `git branch #{remote_arg} --merged`.split(/\n/).map do |line|
+  line.strip.sub(/\A\*\s/, '')
+end
+
+branches.delete_if{|branch| branch =~ /develop\Z|master\Z/}
+branches.compact!
+
+if branches.empty?
+  $stderr.puts "NO branch to delete"
+  exit(0)
+end
+
+puts branches.inspect
+
+branches.each do |branch|
+  cmd = "git branch -d #{remote_arg} #{branch}"
+  dryrun ? puts(cmd) : system(cmd)
+end
