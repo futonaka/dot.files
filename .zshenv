@@ -5,7 +5,10 @@ eval "$(rbenv init - zsh)"
 
 alias fcd='source ~/bin/fcd.sh'
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/develop/mongodb/bin:/usr/local/bin:$PATH
+
+# for brew
+export PATH=$PATH:/usr/local/sbin
 
 # JAVA
 # export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
@@ -31,10 +34,3 @@ export HIVE_HOME=/Users/akima/develop/hive-0.10.0-SNAPSHOT-bin
 
 export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$HADOOP_HOME/bin:$HIVE_HOME/bin
 
-# MongoDB
-export MONGO_HOME=/usr/local/mongodb
-export PATH=$PATH:$MONGO_HOME/bin
-
-# RabbitMQ
-export RABBITMQ_HOME=/usr/local/rabbitmq_server
-export PATH=$PATH:$RABBITMQ_HOME/sbin
