@@ -2,6 +2,11 @@
 autoload -U compinit
 compinit
 
+# http://news.mynavi.jp/column/zsh/002/index.html
+PROMPT="%m:%n%% "
+RPROMPT="[%~]"
+SPROMPT="correct: %R -> %r ? "
+
 
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
