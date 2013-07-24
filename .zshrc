@@ -1,3 +1,8 @@
+# http://news.mynavi.jp/column/zsh/001/index.html
+autoload -U compinit
+compinit
+
+
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # original
