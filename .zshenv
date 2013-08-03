@@ -19,9 +19,6 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK
 
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
-## ANDROID
-export ANDROID_SDK_HOME=/Users/akima/develop/android-sdk-macosx
-
 # HADOOP
 # export HADOOP_HOME=/Users/akima/develop/hadoop-1.0.3
 # export HADOOP_HOME=/Users/akima/develop/hadoop-0.20.2-cdh3u3
