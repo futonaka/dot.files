@@ -29,5 +29,9 @@ export HADOOP_HOME=/Users/akima/develop/hadoop
 # HIVE
 export HIVE_HOME=/Users/akima/develop/hive-0.10.0-SNAPSHOT-bin
 
+# development
+export FONTANA_REPO_URL=git@github.com:tengine/fontana.git
+
+
 export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$HADOOP_HOME/bin:$HIVE_HOME/bin
 
