@@ -44,10 +44,15 @@
 ##### mongodb
 !/.mongorc.js
 
-# tengine用
+##### 共通設定
+.DS_Store
 *.log
+
+
+# tengine用
 pid_for_*
 ruby_job*
+
 
 
 ##### custom scripts
