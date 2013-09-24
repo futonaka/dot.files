@@ -17,7 +17,7 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK
 # alias javac='javac -J-Dfile.encoding=UTF-8'
 # alias java='java -Dfile.encoding=UTF-8'
 
-export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+# export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
 # HADOOP
 # export HADOOP_HOME=/Users/akima/develop/hadoop-1.0.3
@@ -32,6 +32,8 @@ export HIVE_HOME=/Users/akima/develop/hive-0.10.0-SNAPSHOT-bin
 # development
 export FONTANA_REPO_URL=git@github.com:tengine/fontana.git
 
+# mongodb
+export MONGODB_HOME=/Users/akima/develop/mongodb
 
-export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$HADOOP_HOME/bin:$HIVE_HOME/bin
+export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$HADOOP_HOME/bin:$HIVE_HOME/bin:$MONGODB_HOME/bin
 
