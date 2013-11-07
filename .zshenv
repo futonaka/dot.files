@@ -27,7 +27,7 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK
 export HADOOP_HOME=/Users/akima/develop/hadoop
 
 # HIVE
-export HIVE_HOME=/Users/akima/develop/hive-0.10.0-SNAPSHOT-bin
+export HIVE_HOME=/Users/akima/develop/hive
 
 # development
 export FONTANA_REPO_URL=git@github.com:tengine/fontana.git
@@ -37,3 +37,5 @@ export MONGODB_HOME=/Users/akima/develop/mongodb
 
 export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools:$ANDROID_SDK_HOME/tools:$HADOOP_HOME/bin:$HIVE_HOME/bin:$MONGODB_HOME/bin
 
+
+eval "$(pyenv init -)"
