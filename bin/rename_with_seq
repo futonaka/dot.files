@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+if ARGV.include?("-h") or ARGV.include?("--help")
+  puts "#{$PROGRAM_NAME} filename_format target_pattern directory"
+  exit(1)
+end
+
+filename_format, target_pattern, sort, directory = *ARGV
+raise "no filename_format given, it must be like xxxx%03d.png" unless filename_format
+raise "no target_pattern given, it must be Dir.glob argument like \"*.png\"" unless target_pattern
+
+puts ARGV.inspect
+
+sort ||= "mtime" # atime, size, size, name
+directory ||= "."
+verbose = ARGV.include?("-v") or ARGV.include?("--verbose")
+
+require 'fileutils'
+fileutils = verbose ? FileUtils::Verbose : FileUtils
+
+fileutils.chdir(directory) do
+  filepaths =
+    case sort
+    when :name then
+      Dir.glob(target_pattern).to_a.sort
+    else
+      Dir.glob(target_pattern).to_a.sort_by{|f| File::Stat.new(f).send(sort)}
+    end
+  filepaths.each.with_index do |filepath, idx|
+    fileutils.mv(filepath, filename_format % idx)
+  end
+end
