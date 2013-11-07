@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+if ARGV.include?("-h") or ARGV.include?("--help")
+  puts "#{$PROGRAM_NAME} indexes template.erb"
+  exit(1)
+end
+
+indexes_str, template_filepath = *ARGV
+
+raise "no indexes, it must be a range or indexes with comma, like 1..5 or 1,3,5" unless indexes_str
+raise "no template given, it must be path to template file which works with local value named \"idx\"" unless template_filepath
+
+indexes =
+  case indexes_str
+  when /\A\d+\.\.\d+\Z/ then
+    f, l = *indexes_str.split(/\.\./, 2).map(&:to_i)
+    f..l
+  when /\A\d+(\,\d+)*\Z/ then
+    indexes_str.split(/\,/).map(&:to_i)
+  else
+    raise "invalid indexes: #{indexes_str.inspect}"
+  end
+
+require 'erb'
+erb = ERB.new(IO.read(template_filepath))
+erb.filename = template_filepath
+indexes.each do |idx| # idx used in template
+  erb.run(binding)
+end
