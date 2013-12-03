@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+if ARGV.length < 1
+   puts "random_gen <length> <charctors>"
+end
+
+count = ARGV.shift.to_i
+
+chars = ARGV.join
+len = chars.length
+
+res = ""
+(1..count).each do |idx|
+  res << chars[ rand(len) ]
+end
+
+puts res
