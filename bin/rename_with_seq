@@ -1,22 +1,39 @@
 #!/usr/bin/env ruby
 
-if ARGV.include?("-h") or ARGV.include?("--help")
-  puts "#{$PROGRAM_NAME} filename_format target_pattern directory"
+if ARGV.empty? or ARGV.include?("-h") or ARGV.include?("--help")
+  puts <<"EOS"
+USAGE:
+  #{File.basename($PROGRAM_NAME)} filename_format target_pattern directory sort
+
+ARGUMENTS:
+  * filename_format
+    ex: screenshot%02d.png
+
+  * target_pattern: Dir.glob
+    ex: \"*.png\"
+
+  * directory: default is current directory.
+
+  * sort: mtime, atime, size, size or name, default is mtime.
+
+EXAMPLE:
+  * #{File.basename($PROGRAM_NAME)} screenshot%02d.png \"*.png\" .
+
+EOS
   exit(1)
 end
 
-filename_format, target_pattern, sort, directory = *ARGV
-raise "no filename_format given, it must be like xxxx%03d.png" unless filename_format
+filename_format, target_pattern, directory, sort = *ARGV
+raise "no filename_format given, it must be like screenshot%02d.png" unless filename_format
 raise "no target_pattern given, it must be Dir.glob argument like \"*.png\"" unless target_pattern
 
 puts ARGV.inspect
 
 sort ||= "mtime" # atime, size, size, name
 directory ||= "."
-verbose = ARGV.include?("-v") or ARGV.include?("--verbose")
 
 require 'fileutils'
-fileutils = verbose ? FileUtils::Verbose : FileUtils
+fileutils = FileUtils::Verbose
 
 fileutils.chdir(directory) do
   filepaths =
