@@ -22,6 +22,10 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home
 
 # export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 
+# around Scala
+export PATH=$PATH:$HOME/develop/activator
+
+
 # HADOOP
 # export HADOOP_HOME=$HOME/develop/hadoop-1.0.3
 # export HADOOP_HOME=$HOME/develop/hadoop-0.20.2-cdh3u3
