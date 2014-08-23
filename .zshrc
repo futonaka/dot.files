@@ -16,7 +16,7 @@ SPROMPT="correct: %R -> %r ? "
 # ------------------------------
 # General Settings
 # ------------------------------
-export EDITOR=/usr/bin/emacs # エディタをvimに設定
+export EDITOR=/usr/bin/emacs # エディタをemacsに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 # export AUTOFEATURE=true  # autotestでfeatureを動かす
